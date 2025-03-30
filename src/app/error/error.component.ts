@@ -11,7 +11,6 @@ export class ErrorComponent {
 image = 'https://thumbs.dreamstime.com/b/error-rubber-stamp-word-error-inside-illustration-109026446.jpg'
 
 constructor(private router: Router){
-
 }
 
 goback(){
