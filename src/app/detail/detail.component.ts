@@ -1,15 +1,24 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, RouterModule, RouterOutlet } from '@angular/router';
+
+interface User {
+  id: number;
+  email: string;
+  first_name: string;
+  last_name: string;
+  avatar: string;
+}
 
 @Component({
-  selector: 'app-detail',
-  imports: [],
+  selector: 'app-home',
+  imports: [RouterModule,CommonModule,FormsModule,RouterOutlet],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss'
 })
-export class DetailComponent {
-
-  users!: User
+export class DetailComponent implements OnInit {
+  user: User | undefined; 
 
   users: User[] = [ 
     { id: 1, email: "george.bluth@reqres.in", first_name: "George", last_name: "Bluth", avatar: "https://reqres.in/img/faces/1-image.jpg" },
@@ -24,6 +33,7 @@ export class DetailComponent {
 
   ngOnInit() {
     let id = Number(this.route.snapshot.paramMap.get('id')); 
-    this.users = this.users.find(user => user.id === id)!; 
+    this.user = this.users.find(user => user.id === id); 
   }
 }
+

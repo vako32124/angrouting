@@ -1,8 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+interface User {
+  id: number;
+  email: string;
+  first_name: string;
+  last_name: string;
+  avatar: string;
+}
+
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [CommonModule,FormsModule,RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
